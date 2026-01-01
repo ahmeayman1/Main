@@ -1,0 +1,204 @@
+/* ===== ROOT ===== */
+:root {
+  --bg: #f4f6f8;
+  --card: #ffffff;
+  --text: #222;
+  --primary: #2bb673; /* أخضر طبي */
+}
+
+/* ===== DARK MODE ===== */
+body.dark {
+  --bg: #121212;
+  --card: #1f1f1f;
+  --text: #ffffff;
+}
+
+/* ===== BODY ===== */
+body {
+  margin: 0;
+  font-family: system-ui, Arial;
+  background: var(--bg);
+  color: var(--text);
+  direction: rtl;
+  transition: 0.3s;
+}
+
+/* ===== PAGE ===== */
+.questions-page {
+  padding: 30px 20px;
+}
+
+/* ===== SUBJECT CARD ===== */
+.subject-card {
+  background: var(--card);
+  border-radius: 20px;
+  padding: 25px;
+  text-align: center;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+  animation: scaleFade 0.6s ease forwards;
+}
+
+.subject-card h2 {
+  margin-bottom: 10px;
+}
+
+.subject-card p {
+  opacity: 0.7;
+  margin-bottom: 20px;
+}
+
+/* ===== VIEW BUTTON ===== */
+.view-btn {
+  background: var(--primary);
+  color: white;
+  border: none;
+  padding: 14px;
+  width: 100%;
+  border-radius: 12px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: 0.25s;
+}
+
+.view-btn:hover {
+  transform: scale(1.05);
+}
+
+.view-btn:active {
+  transform: scale(0.95);
+}
+
+/* ===== OVERLAY ===== */
+.overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.4);
+  backdrop-filter: blur(6px);
+  opacity: 0;
+  pointer-events: none;
+  transition: 0.3s;
+  z-index: 1000;
+}
+
+.overlay.active {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+/* ===== MODAL ===== */
+.modal {
+  position: fixed;
+  left: 50%;
+  bottom: -100%;
+  transform: translateX(-50%) scale(0.9);
+  width: 90%;
+  max-width: 400px;
+  max-height: 70vh;          /* ⭐ مهم */
+  background: var(--card);
+  border-radius: 20px 20px 0 0;
+  box-shadow: 0 -10px 40px rgba(0,0,0,0.3);
+  transition: 0.4s ease;
+  z-index: 1100;
+  overflow-y: auto;          /* ⭐ مهم */
+}
+
+/* عند الفتح */
+.modal.active {
+  bottom: 0;
+  transform: translateX(-50%) scale(1);
+}
+
+/* ===== MODAL HEADER ===== */
+.modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px;
+  border-bottom: 1px solid rgba(0,0,0,0.1);
+}
+
+.close-btn {
+  cursor: pointer;
+  font-size: 20px;
+}
+
+/* ===== MODAL CONTENT ===== */
+.modal-content {
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.lecture-item {
+  background: var(--primary);
+  color: white;
+  padding: 14px;
+  border-radius: 12px;
+  text-decoration: none;
+  text-align: center;
+  transition: 0.25s;
+}
+
+.lecture-item:hover {
+  transform: scale(1.05);
+}
+
+/* ===== ANIMATION ===== */
+@keyframes scaleFade {
+  from {
+    opacity: 0;
+    transform: scale(0.85);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+.back-btn {
+  background: none;
+  border: none;
+  font-size: 18px;
+  color: #2fb573;
+  cursor: pointer;
+  margin-bottom: 15px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.back-btn:hover {
+  opacity: 0.7;
+}
+.page-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 20px;
+}
+
+.back-icon {
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  border: none;
+  background: var(--card);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  font-size: 20px;
+  cursor: pointer;
+  transition: 0.25s;
+}
+
+.back-icon:hover {
+  transform: scale(1.1);
+}
+
+.back-icon:active {
+  transform: scale(0.95);
+}
+
+.page-title {
+  font-size: 18px;
+  font-weight: 600;
+  opacity: 0.7;
+}
